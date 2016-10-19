@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Restaurant from './Restaurant.jsx';
 
-class RestaurantList extends Component {
-  render() {
-    return(
-      <div>
-        <Restaurant />
-      </div>
-    )
-  }
+const RestaurantList = props => {
+  return(
+    <div>
+      {props.restaurants.map((restaurant, i) => {
+        return <Restaurant restaurant={restaurant} key={i}/>
+      })}
+    </div>
+  )
 }
 
 export default RestaurantList;
