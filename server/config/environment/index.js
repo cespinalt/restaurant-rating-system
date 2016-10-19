@@ -9,7 +9,7 @@ const basicSettings = {
   env: process.env.NODE_ENV,
   port: process.env.PORT || 3000,
   ip: process.env.IP || '0.0.0.0',
-  root: path.normalize(`${__dirname}../../..`),
+  root: path.normalize(`${__dirname}/../../..`),
   secrets: {
     session: process.env.SESSION_SECRET || 'session-secret',
   }
