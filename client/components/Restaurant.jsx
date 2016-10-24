@@ -10,7 +10,7 @@ const Restaurant = props => {
         <img className="thumbnail img-responsive"
           src={`../assets/images/${props.restaurant.id}.jpg`} />
         <h3 className="choice">Choose a rating</h3>
-        <Stars />
+        <Stars {...props.restaurant} />
       </div>
     </div>
   )
