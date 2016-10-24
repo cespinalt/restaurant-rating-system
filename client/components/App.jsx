@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './Header.jsx';
 import RestaurantList from './RestaurantList.jsx';
 import api from '../utils/methods';
+
 class App extends Component {
   constructor() {
     super();
