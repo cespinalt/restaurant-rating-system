@@ -4,7 +4,7 @@ const controller = {};
 
 controller.all = (req, res) => {
   Restaurant.findAll()
-    .then(results => res.json({restaurants: results}))
+    .then(results => {res.status(200).json({restaurants: results})})
     .catch(err => console.log(err));
 };
 
@@ -20,13 +20,13 @@ controller.rate = (req, res) => {
           .then((rest => {
             const count_user = rest.count_user + 1;
             const reviews_sum = (rest.reviews_sum) + user_rating;
-            
+
             rest.update({count_user, reviews_sum});
           })).catch(err => console.log(err));
       }
   })
     .then(() => {
-      res.json({msg: 'Rating uploaded'});
+      res.status(201).json({msg: 'Rating uploaded'});
     })
     .catch(err => {console.log(err)});
 };
