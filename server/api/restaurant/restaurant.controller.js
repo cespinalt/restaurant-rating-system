@@ -1,5 +1,4 @@
 const {Restaurant, User, Rating} = require('../../db');
-
 const controller = {};
 
 controller.all = (req, res) => {
@@ -18,10 +17,10 @@ controller.rate = (req, res) => {
       if (created) {
         Restaurant.findOne({where: {id: rest_id}})
           .then((rest => {
-            const count_user = rest.count_user + 1;
-            const reviews_sum = (rest.reviews_sum) + user_rating;
+            const users = rest.users + 1;
+            const points = (rest.points) + user_rating;
 
-            rest.update({count_user, reviews_sum});
+            rest.update({users, points});
           })).catch(err => console.log(err));
       }
   })
@@ -29,6 +28,31 @@ controller.rate = (req, res) => {
       res.status(201).json({msg: 'Rating uploaded'});
     })
     .catch(err => {console.log(err)});
+};
+
+controller.add = (req, res) => {
+  const name = req.body.name;
+  console.log(name);
+  Restaurant.findOrCreate({where: {name: name, users: 0, points: 0}})
+  .spread((rest, created) => {
+    if(created) {
+      res.status(201).json({msg: 'Restaurant successfully added'});
+    } else {
+      res.status(409).json({msg: 'Restaurant already exist'});
+    }
+  });
+};
+
+controller.delete = (req, res) => {
+  const name = req.body.name;
+  Restaurant.destroy({where: {name,}})
+  .then(data => {
+    if(data) {
+      res.status(202).json({msg: 'Restaurant deleted'});
+    } else {
+      res.status(204).json({msg: 'No such restaurant exist'});
+    }
+  });
 };
 
 module.exports = controller;
