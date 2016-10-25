@@ -32,8 +32,8 @@ controller.rate = (req, res) => {
 
 controller.add = (req, res) => {
   const name = req.body.name;
-  console.log(name);
-  Restaurant.findOrCreate({where: {name: name, users: 0, points: 0}})
+  const thumbnail = req.body.thumbnail || 'smith.jpg';
+  Restaurant.findOrCreate({where: {name: name, users: 0, points: 0, thumbnail,}})
   .spread((rest, created) => {
     if(created) {
       res.status(201).json({msg: 'Restaurant successfully added'});
