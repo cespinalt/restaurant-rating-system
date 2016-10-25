@@ -8,7 +8,7 @@ const Restaurant = props => {
       <div className="well">
         <h4 className="text-center">{props.restaurant.name}</h4>
         <img className="thumbnail img-responsive"
-          src={`../assets/images/${props.restaurant.id}.jpg`} />
+            src={`../assets/images/${props.restaurant.thumbnail}`} />
         <h3 className="choice">Choose a rating</h3>
         <Stars {...props.restaurant} />
       </div>
