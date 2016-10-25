@@ -4,7 +4,8 @@
   "description": "Rating system to rate restaurants",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "sudo node server/server.js",
+    "test": "mocha server/test/serverIntegrationSpec.js"
   },
   "author": "Carlos Espinal",
   "license": "ISC",
