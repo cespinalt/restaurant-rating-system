@@ -11,6 +11,10 @@ class Stars extends Component {
       <div>
         <span className="star-rating">
           <input type="radio" name="rating" value="5" onClick={api.submitRating} /><i></i>
+          <input type="radio" name="rating" value="5" onClick={api.submitRating} /><i></i>
+          <input type="radio" name="rating" value="5" onClick={api.submitRating} /><i></i>
+          <input type="radio" name="rating" value="5" onClick={api.submitRating} /><i></i>
+          <input type="radio" name="rating" value="5" onClick={api.submitRating} /><i></i>
         </span>
       </div>
     )
