@@ -13,11 +13,23 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.showUpdatedRestaurant();
+  }
+
+  showUpdatedRestaurant() {
     const self = this;
     api.getRestaurants()
     .then(result => {
       self.setState({restaurants: result.data.restaurants});
     })
+  }
+
+  submitRating(user, restID, value) {
+    self = this;
+    api.submitRating(user, restID, value)
+    .then(() => {
+      self.showUpdatedRestaurant();
+    });
   }
 
   render() {
@@ -27,7 +39,8 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <h1 className="text-center">Rate Restaurants all over the world!</h1>
-            <RestaurantList restaurants={this.state.restaurants} />
+            <RestaurantList restaurants={this.state.restaurants}
+              submitRating={this.submitRating.bind(this)} />
           </div>
         </div>
       </div>
