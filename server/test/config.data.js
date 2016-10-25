@@ -1,5 +1,5 @@
 const restaurantUri = 'http://127.0.0.1:3000/api/restaurants';
-const userUri = 'http://127.0.0.1:3000/api/user';
+const userUri = 'http://127.0.0.1:3000/api/users';
 const baseUri = 'http://127.0.0.1:3000/';
 const users = [
   {
