@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = {}
-const uri = 'http://localhost:3000/api';
+const uri = 'http://localhost:3000/api/restaurants';
 
 api.getRestaurants = () => {
   // let restaurants;
