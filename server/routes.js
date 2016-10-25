@@ -4,7 +4,7 @@ const userRouter = require('./api/user');
 module.exports = app => {
   // app.use('/', restaurantRouter);
   app.use('/api/restaurants', restaurantRouter);
-  app.use('/api/user', userRouter);
+  app.use('/api/users', userRouter);
 
   app.route('/:url(api|bower_components|assests|app)/*').get((req, res) => {
     res.sendStatus(404);
