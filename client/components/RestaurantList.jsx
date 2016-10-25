@@ -5,7 +5,8 @@ const RestaurantList = props => {
   return(
     <div>
       {props.restaurants.map((restaurant, i) => {
-        return <Restaurant restaurant={restaurant} key={i}/>
+        return <Restaurant restaurant={restaurant} key={i}
+          submitRating={props.submitRating}/>
       })}
     </div>
   )
