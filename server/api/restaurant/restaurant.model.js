@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     points: {
       type: DataTypes.INTEGER,
       validate: { isNumeric: true,},
-    }
+    },
+    thumbnail: DataTypes.STRING,
   },{
     getterMethods: {
       average: function() {
